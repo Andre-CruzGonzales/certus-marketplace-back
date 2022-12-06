@@ -16,7 +16,7 @@ export class PageLoginComponent implements OnInit {
   onClickLogin(data: Login) {
     this.auth.login(data).subscribe((data) => {
       this.token = data.token;
-      this.router.navigate(['/products']);
+      this.router.navigate(['/cms/products']);
     });
   }
   onChangePageRegister() {

@@ -7,10 +7,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class LoginComponent implements OnInit {
   @Output() user = new EventEmitter();
   @Output() changePageRegister = new EventEmitter();
+
   usuario = {
     email: '',
     password: '',
   };
+
   constructor() {}
 
   ngOnInit(): void {}

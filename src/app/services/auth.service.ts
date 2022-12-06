@@ -22,4 +22,7 @@ export class AuthService {
       //headers,
     });
   }
+  register(data: Login) {
+    return this.http.post<Auth>(`${this.apiUrl}/register`, data);
+  }
 }

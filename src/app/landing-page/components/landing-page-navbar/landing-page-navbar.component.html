@@ -1,0 +1,25 @@
+<p-menubar [model]="items" styleClass="bg-white w-full fixed z-2 menubar">
+  <ng-template pTemplate="start">
+    <img src="assets/images/logo-certus-3.png.webp" height="40" class="mr-2" />
+  </ng-template>
+  <ng-template pTemplate="end">
+    <div class="flex justify-content-between">
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Login"
+        class="p-button-outlined p-button-rounded mr-2"
+        (click)="onLogin()"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Registrate"
+        class="p-button-rounded ml-2"
+        (click)="onRegister()"
+      ></button>
+    </div>
+  </ng-template>
+</p-menubar>

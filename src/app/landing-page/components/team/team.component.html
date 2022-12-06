@@ -1,0 +1,15 @@
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+  <div class="text-center font-bold text-900 text-5xl mb-3">Nuestro Equipo</div>
+  <div class="text-center text-xl line-height-3 text-600 mb-6">
+    Nuestro equipo esta conformado por los siguientes integrantes
+  </div>
+  <div class="grid">
+    <div class="col-12 md:col-4 text-center mb-5" *ngFor="let t of team">
+      <app-card-team
+        [nombres]="t.nombres"
+        [rol]="t.rol"
+        [image]="t.image"
+      ></app-card-team>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+  <div class="text-900 text-4xl font-medium mb-4 text-center lg:text-left">
+    Categorías
+  </div>
+  <p class="mt-0 p-0 mb-5 text-2xl text-600 text-center lg:text-left">
+    Todas las categorías que encontraras
+  </p>
+  <div
+    class="grid -mt-3 -ml-3 -mr-3 align-items-center justify-content-center lg:justify-content-start"
+  >
+    <div class="xs:col-12 sm:col-6 lg:col-4 p-0" *ngFor="let cat of categories">
+      <div class="surface-0 m-3 border-round shadow-2">
+        <app-category-card
+          [image]="
+            cat.url_imagen
+              ? cat.url_imagen
+              : 'https://primefaces.org/primeblocks-ng/assets/images/blocks/ecommerce/categorypreview/category-preview-1-6.png'
+          "
+          [title]="cat.nombre"
+          subtitle="Ingresa a la categoria"
+          (toggleClick)="onClick(cat)"
+        ></app-category-card>
+      </div>
+    </div>
+  </div>
+</div>

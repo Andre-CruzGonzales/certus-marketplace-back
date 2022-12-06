@@ -1,0 +1,231 @@
+<p-toast></p-toast>
+<div class="card">
+  <p-toolbar styleClass="mb-4 gap-2">
+    <ng-template pTemplate="left">
+      <button
+        pButton
+        pRipple
+        label="Nuevo"
+        icon="pi pi-plus"
+        class="p-button-success mr-2"
+        (click)="openNew()"
+      ></button>
+    </ng-template>
+  </p-toolbar>
+
+  <p-table
+    #dt
+    [value]="products"
+    [rows]="10"
+    [paginator]="true"
+    [globalFilterFields]="['nombre', 'precio', 'publicado', 'categoria.nombre']"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Mostrando {first} de {last} para {totalRecords} Entidades"
+    [showCurrentPageReport]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h5 class="m-0">Manage Products</h5>
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" placeholder="Buscar..." />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="nombre" style="min-width: 15rem">
+          Nombre <p-sortIcon field="nombre"></p-sortIcon>
+        </th>
+        <th>Imagen</th>
+        <th pSortableColumn="precio">
+          Precio <p-sortIcon field="precio"></p-sortIcon>
+        </th>
+        <th pSortableColumn="categoria.nombre" style="min-width: 10rem">
+          Categoria <p-sortIcon field="categoria.nombre"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="publicado" style="min-width: 10rem">
+          Status <p-sortIcon field="publicado"></p-sortIcon>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.nombre }}</td>
+        <td>
+          <img
+            [src]="
+              product.imagen
+                ? product.imagen
+                : 'data:image/png;base64,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'
+            "
+            [alt]="product.nombre"
+            width="100"
+            class="shadow-4"
+          />
+        </td>
+        <td>{{ product.precio | currency: "PEN" }}</td>
+        <td>{{ product?.categoria?.nombre }}</td>
+
+        <td>
+          <p-tag
+            styleClass="mr-2"
+            [icon]="
+              'pi ' +
+              (product.publicado === 1 ? 'pi-check' : 'pi-exclamation-triangle')
+            "
+            [severity]="product.publicado === 1 ? 'success' : 'warning'"
+            [value]="product.publicado === 1 ? 'Publicado' : 'No Publicado'"
+          ></p-tag>
+        </td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-eye"
+            class="p-button-rounded p-button-help p-button-text"
+            (click)="onPublicar(product)"
+          ></button>
+
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-warning p-button-text mr-2"
+            (click)="onEdit(product)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger p-button-text"
+            (click)="onDelete(product)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        In total there are {{ products ? products.length : 0 }} products.
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  [(visible)]="showDialog"
+  [style]="{ width: '450px' }"
+  header="Product Details"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content">
+    <form [formGroup]="form">
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input
+          type="text"
+          pInputText
+          id="name"
+          required
+          autofocus
+          formControlName="nombre"
+        />
+        <small class="p-error" *ngIf="submited && form.invalid"
+          >Nombre es requerido.</small
+        >
+      </div>
+      <div class="field">
+        <label for="inventoryStatus">Categoría</label>
+        <p-dropdown
+          [options]="categories"
+          placeholder="Selecciona una categoria"
+          optionLabel="nombre"
+          formControlName="categoria_id"
+          optionValue="id"
+          [showClear]="true"
+        ></p-dropdown>
+      </div>
+      <div class="field">
+        <label for="description">Description</label>
+        <textarea
+          formControlName="descripcion"
+          id="description"
+          pInputTextarea
+          required
+          rows="3"
+          cols="20"
+        ></textarea>
+      </div>
+
+      <div class="field">
+        <label for="price">Precio</label>
+        <p-inputNumber
+          mode="currency"
+          currency="PEN"
+          locale="es-PE"
+          formControlName="precio"
+        ></p-inputNumber>
+      </div>
+      <div class="field">
+        <label for="imagen">Imagen</label
+        ><p-fileUpload
+          accept="image/*"
+          (onSelect)="OnSelect($event)"
+          [auto]="true"
+        >
+          <ng-template let-file pTemplate="file">
+            <div class="flex justify-content-between align-items-center">
+              <div class="pr-3">
+                <img
+                  *ngIf="dto?.url_imagen"
+                  [src]="dto?.url_imagen"
+                  class="image-template-choose"
+                />
+                <img *ngIf="url" [src]="url" class="image-template-choose" />
+              </div>
+              <div class="pr-3">
+                <p>{{ dto.imagen.name }}</p>
+              </div>
+              <div>
+                <button
+                  *ngIf="url"
+                  pButton
+                  pRipple
+                  type="button"
+                  icon="pi pi-times"
+                  class="p-button-rounded p-button-danger"
+                  (click)="onRemove()"
+                ></button>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="content"> </ng-template>
+        </p-fileUpload>
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Cancel"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="hideDialog()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      label="Save"
+      icon="pi pi-check"
+      class="p-button-text"
+      (click)="onSave()"
+    ></button>
+  </ng-template>
+</p-dialog>
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
