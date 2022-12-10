@@ -15,7 +15,7 @@
           class="pi pi-shopping-cart mr-4"
           pBadge
           style="font-size: 2rem p-text-secondary"
-          value="2"
+          [value]="'' + counter"
           severity="success"
         ></i>
       </button>
@@ -24,19 +24,10 @@
           <div class="text-900 text-xl pb-3 border-bottom-1 surface-border">
             tu Carrito de compras
           </div>
-          <ul class="list-none p-0 m-0">
-            <li class="flex py-3 align-items-center">
-              <img
-                src="https://primefaces.org/primeblocks-ng/assets/images/blocks/ecommerce/shoppingcart/shopping-cart-4-1.png"
-                class="w-4rem h-4rem flex-shrink-0 shadow-1"
-              />
-              <div class="pl-3 mr-8">
-                <span class="text-900 font-medium">Product</span>
-                <div class="text-600 mt-2">subtitle</div>
-              </div>
-              <div class="text-900 font-medium ml-auto">$12.00</div>
-            </li>
-          </ul>
+          <app-list-buy-car
+            [cartProducts]="cartProducts"
+            [total]="total"
+          ></app-list-buy-car>
         </ng-template>
       </p-overlayPanel>
     </div>

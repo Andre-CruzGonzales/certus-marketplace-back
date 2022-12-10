@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-mk-product-card',
@@ -11,8 +11,12 @@ export class MkProductCardComponent implements OnInit {
   @Input() precio = '';
   @Input() categoria = '';
   @Input() imagen = '';
+  @Output() clickCart = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+  onClickCart() {
+    this.clickCart.emit();
+  }
 }

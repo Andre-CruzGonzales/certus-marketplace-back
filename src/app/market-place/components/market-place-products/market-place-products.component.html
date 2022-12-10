@@ -9,6 +9,7 @@
         [categoria]="product?.categoria?.nombre"
         [descripcion]="product?.descripcion"
         [precio]="product.precio"
+        (clickCart)="onClickCart(product)"
       ></app-mk-product-card>
     </div>
   </div>

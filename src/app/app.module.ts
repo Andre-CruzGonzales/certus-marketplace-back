@@ -54,6 +54,10 @@ import { BadgeModule } from 'primeng/badge';
 
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { CmsNavbarComponent } from './cms/components/cms-navbar/cms-navbar.component';
+import { ListBuyCarComponent } from './market-place/components/list-buy-car/list-buy-car.component';
+import { ListBuyPriceComponent } from './list-buy-price/list-buy-price.component';
+import { OrderFormComponent } from './market-place/components/order-form/order-form.component';
+import { PageFormOrderComponent } from './pages/page-form-order/page-form-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +89,10 @@ import { CmsNavbarComponent } from './cms/components/cms-navbar/cms-navbar.compo
     MkProductCardComponent,
     NavbarMarketPlaceComponent,
     CmsNavbarComponent,
+    ListBuyCarComponent,
+    ListBuyPriceComponent,
+    OrderFormComponent,
+    PageFormOrderComponent,
   ],
   imports: [
     BrowserModule,

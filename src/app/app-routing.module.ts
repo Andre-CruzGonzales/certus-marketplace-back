@@ -9,6 +9,7 @@ import { CmsProductosComponent } from './cms/pages/cms-productos/cms-productos.c
 import { CmsCategoryComponent } from './cms/pages/cms-category/cms-category.component';
 import { IndexMarketPlaceComponent } from './market-place/pages/index-market-place/index-market-place.component';
 import { CategoryMarketPlaceComponent } from './market-place/pages/category-market-place/category-market-place.component';
+import { PageFormOrderComponent } from './pages/page-form-order/page-form-order.component';
 const routes: Routes = [
   { path: '', component: IndexLandingPageComponent },
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'cms/category', component: CmsCategoryComponent },
   { path: 'mk/products', component: IndexMarketPlaceComponent },
   { path: 'mk/products/:idCategoria', component: CategoryMarketPlaceComponent },
+  { path: 'mk/form-order', component: PageFormOrderComponent },
 ];
 
 @NgModule({

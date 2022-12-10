@@ -1,0 +1,222 @@
+<div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
+  <form [formGroup]="form">
+    <div class="grid -mr-3 -ml-3 ng-tns-c45-2">
+      <div class="col-12 lg:col-8 p-4 ng-tns-c45-2">
+        <div
+          class="surface-card grid formgrid p-fluid border-round shadow-2 p-4 ng-tns-c45-2"
+        >
+          <div
+            class="col-12 mb-4 flex flex-column lg:flex-row align-items-center justify-content-between ng-tns-c45-2"
+          >
+            <div class="text-900 font-medium text-xl ng-tns-c45-2">
+              Información de Contacto
+            </div>
+          </div>
+          <div class="col-12 field ng-tns-c45-2">
+            <label class="text-900 font-medium mb-3 ng-tns-c45-2">Email</label>
+            <input
+              type="text"
+              pInputText
+              class="w-full mb-3 ng-tns-c45-2"
+              formControlName="email"
+            />
+          </div>
+
+          <!--shipping-->
+          <div
+            class="col-12 mb-4 flex flex-column lg:flex-row align-items-center justify-content-between ng-tns-c45-2"
+          >
+            <div class="text-900 font-medium text-xl ng-tns-c45-2">Entrega</div>
+          </div>
+          <div class="col-12 field ng-tns-c45-2">
+            <label class="text-900 font-medium mb-3 ng-tns-c45-2"
+              >Dirección</label
+            >
+            <input
+              type="text"
+              pInputText
+              class="w-full mb-3 ng-tns-c45-2"
+              formControlName="direccion"
+            />
+          </div>
+          <div class="col-12 field ng-tns-c45-2">
+            <label class="text-900 font-medium mb-3 ng-tns-c45-2"
+              >Departamento</label
+            >
+            <input
+              type="text"
+              pInputText
+              class="w-full mb-3 ng-tns-c45-2"
+              formControlName="departamento"
+            />
+          </div>
+          <div class="col-12 field ng-tns-c45-2">
+            <label class="text-900 font-medium mb-3 ng-tns-c45-2"
+              >Provincia</label
+            >
+            <input
+              type="text"
+              pInputText
+              class="w-full mb-3 ng-tns-c45-2"
+              formControlName="provincia"
+            />
+          </div>
+          <div class="col-12 field ng-tns-c45-2">
+            <label class="text-900 font-medium mb-3 ng-tns-c45-2"
+              >Distrito</label
+            >
+            <input
+              type="text"
+              pInputText
+              class="w-full mb-3 ng-tns-c45-2"
+              formControlName="distrito"
+            />
+          </div>
+          <div class="col-12 field ng-tns-c45-2">
+            <label class="text-900 font-medium mb-3 ng-tns-c45-2"
+              >Telefono</label
+            >
+            <input
+              type="text"
+              pInputText
+              class="w-full mb-3 ng-tns-c45-2"
+              formControlName="telefono"
+            />
+          </div>
+          <!--pago-->
+          <div
+            class="col-12 mb-4 flex flex-column lg:flex-row align-items-center justify-content-between ng-tns-c45-2"
+          >
+            <div class="text-900 font-medium text-xl ng-tns-c45-2">
+              Metodo Pago
+            </div>
+          </div>
+          <div class="col p-3 ng-tns-c45-2">
+            <div
+              class="flex flex-column border-round border-1 surface-border p-4 cursor-pointer hover:border-primary transition-duration-150 ng-tns-c45-2"
+            >
+              <img
+                src="https://1000marcas.net/wp-content/uploads/2019/12/Visa-Logo-2005.jpg"
+                class="w-6rem ng-tns-c45-2"
+              />
+              <span
+                class="inline-block text-900 text-lg lg:text-xl mt-3 ng-tns-c45-2"
+                >{{
+                  form.controls["nro_tarjeta"].valid
+                    ? form.controls["nro_tarjeta"].value
+                    : "xxx-xxxx-xxxx-xxx"
+                }}</span
+              >
+              <div
+                class="flex justify-content-between align-items-center mt-3 ng-tns-c45-2"
+              >
+                <span class="inline-block text-600 text-sm ng-tns-c45-2"
+                  >CVV</span
+                >
+                <span
+                  class="inline-block text-600 text-sm text-right ng-tns-c45-2"
+                  >Expiry Date</span
+                >
+              </div>
+              <div
+                class="flex justify-content-between align-items-center mt-3 ng-tns-c45-2"
+              >
+                <span class="inline-block text-900 font-bold ng-tns-c45-2">{{
+                  form.controls["cvv"].valid
+                    ? form.controls["cvv"].value
+                    : "123"
+                }}</span>
+                <span class="inline-block text-900 font-bold ng-tns-c45-2">{{
+                  form.controls["fecha_caducidad"].valid
+                    ? form.controls["fecha_caducidad"].value
+                    : "dd/yy"
+                }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 field ng-tns-c45-2">
+            <label class="text-900 font-medium mb-3 ng-tns-c45-2"
+              >Nro Tarjeta</label
+            >
+            <input
+              type="text"
+              pInputText
+              class="w-full mb-3 ng-tns-c45-2"
+              formControlName="nro_tarjeta"
+            />
+          </div>
+          <div class="col-12 lg:col-6 field mb-4 ng-tns-c45-2">
+            <label class="text-900 font-medium mb-3 block ng-tns-c45-2">
+              Fecha de Caducidad
+            </label>
+            <input
+              type="text"
+              pInputText
+              class="w-full mb-3 ng-tns-c45-2"
+              formControlName="fecha_caducidad"
+            />
+          </div>
+          <div class="col-12 lg:col-6 field mb-4 ng-tns-c45-2">
+            <label class="text-900 font-medium mb-3 block ng-tns-c45-2">
+              CVV
+            </label>
+            <input
+              type="text"
+              pInputText
+              class="w-full mb-3 ng-tns-c45-2"
+              formControlName="cvv"
+            />
+          </div>
+          <button
+            pButton
+            pRipple
+            type="button"
+            label="Realizar Compra"
+            (click)="onSave()"
+          ></button>
+        </div>
+      </div>
+      <div class="col-12 lg:col-4 p-4 ng-tns-c45-2">
+        <div class="surface-card border-round shadow-2 p-5 ng-tns-c45-2">
+          <div
+            class="flex justify-content-between align-items-center border-bottom-1 pb-3 surface-border ng-tns-c45-2"
+          >
+            <span class="text-900 font-medium text-lg lg:text-xl ng-tns-c45-2">
+              Tu Orden
+            </span>
+          </div>
+          <!--items-->
+          <div
+            class="flex flex-column lg:flex-row flex-wrap lg:align-items-center py-3 my-3 border-bottom-1 surface-border ng-tns-c45-2"
+            *ngFor="let product of cartProducts"
+          >
+            <img
+              class="w-8rem h-8rem flex-shrink-0 mb-3 ng-tns-c45-2"
+              [src]="product.imagen"
+            />
+            <div class="flex-auto lg:ml-3 ng-tns-c45-2">
+              <div
+                class="flex align-items-center justify-content-between mb-3 ng-tns-c45-2"
+              >
+                <span class="text-900 font-medium ng-tns-c45-2">{{
+                  product.nombre
+                }}</span>
+                <span class="text-900 font-bold ng-tns-c45-2">{{
+                  product.precio | currency : "PEN"
+                }}</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex justify-content-between align-items-center mb-3 ng-tns-c45-2"
+          >
+            <span class="text-900 ng-tns-c45-2">Total</span>
+            <span class="text-900 font-bold ng-tns-c45-2">{{
+              total | currency : "PEN"
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

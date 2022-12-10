@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-index-market-place',
@@ -8,7 +9,10 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class IndexMarketPlaceComponent implements OnInit {
   products: any[] = [];
-  constructor(private productoService: ProductsService) {}
+  constructor(
+    private productoService: ProductsService,
+    private storeService: StoreService
+  ) {}
 
   ngOnInit(): void {
     this.getAll();
@@ -23,5 +27,18 @@ export class IndexMarketPlaceComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+  onClickCart(producto: any) {
+    this.addProducto(producto);
+    this.getTotal();
+  }
+  addProducto(producto: any) {
+    this.storeService.addProduct(producto);
+  }
+  getTotal() {
+    this.storeService.getTotal();
+  }
+  getShoppingCart(): any {
+    return this.getShoppingCart();
   }
 }
