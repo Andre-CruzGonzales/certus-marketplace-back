@@ -85,6 +85,9 @@ export class CrudCategoryComponent implements OnInit {
         this.categories = result;
         console.log(result);
       },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
   OnSelect(event: any) {
